@@ -1,0 +1,14 @@
+table {
+    border-collapse: collapse;
+    border-style: hidden;
+    max-width: 800px;
+  }
+  
+table td {
+    border: 2px solid black;
+    word-wrap: break-word;
+  }
+
+iframe {
+    max-height: 1000px;
+}

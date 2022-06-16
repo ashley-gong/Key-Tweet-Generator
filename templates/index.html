@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Key Tweet Generator
+{% endblock %}
+
+{% block main %}
+    <center><h4 class="inputlink" style="padding: 10px">Input Link of Tweet Below</h2>
+        <form action="/" method="post">
+            <div class="mb-3">
+                <input class="form-control" id="link" name="link" placeholder="Tweet Link" type="url">
+            </div>
+            <button class="btn btn-dark" style="background-color: #0069e9; border: none" type="submit">Submit</button>
+        </form>
+        <p style="padding: 10px">Note: make sure the last component of the URL only includes the tweet ID number.</p>
+    </center>
+
+    <!-- use javascript to generate image on same page upon button click? 
+        https://www.geeksforgeeks.org/how-to-create-an-image-element-dynamically-using-javascript/
+     -->
+
+{% endblock %}
