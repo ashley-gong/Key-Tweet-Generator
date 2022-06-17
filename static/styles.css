@@ -9,6 +9,15 @@ table td {
     word-wrap: break-word;
   }
 
+.followerstd {
+    border-top-style: hidden;
+    border-bottom-style: hidden;
+  }  
+
+.tweettd {
+    border: 2px solid black;
+  } 
+
 iframe {
     max-height: 1000px;
 }

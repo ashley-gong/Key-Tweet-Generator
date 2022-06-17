@@ -6,30 +6,32 @@
 
 {% block main %}
     <!-- graphic goes here -->
+    <center>
     <table class="table">
         <thead>
             <tr>
-                <td colspan="2" scope="col" style="text-align: right">
+                <td class="tweettd" colspan="2" scope="col" style="text-align: right">
                     <b>{{ data.retweets }} RETWEETS
                     <br>{{ data.likes }} LIKES</b>
                     <br><a href={{ data.url }}>{{ data.url }}</a>
                 </td>
-                <td width="100px">
-                    <b>@{{ data.handle }}<br>{{ data.followers }} followers</b>
+                <td width="100px" class="followerstd">
+                    <b>@{{ data.handle }}<br>{{ data.followers }} FOLLOWERS</b>
                 </td>
           </tr>
         </thead>
         <tbody>
-            <tr style="height: 500px">
+            <tr>
                 <!-- twitframe -->
-                <td colspan="2" rowspan="2">
-                    <div>
-                    <iframe border=0 frameborder=0 width=550 height=800
+                <td class="tweettd" colspan="2" rowspan="2">
+                    <div style="height: 750px">
+                    <iframe style="position: absolute; resize: both;" border=0 frameborder=0 width=100% height=100%
                     src={{ data.twitframe_url }}></iframe>
                     </div>
                 </td>
-                <td style="border-left: 10px" width="200px">{{ data.bio }}</td>
+                <td class="followerstd" width="200px">{{ data.bio }}</td>
             </tr>
         </tbody>
       </table>
+      </center>
 {% endblock %}
