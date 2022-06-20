@@ -1,12 +1,16 @@
 #from https://dev.mention.com/current/src/guides/twitter.html 
 import os
 
-from this import d
 from rauth import OAuth1Service
-import json
-import urllib.parse
 
 # API keys
+# from dotenv import load_dotenv
+# load_dotenv()
+# consumer_key = os.getenv('CONSUMER_KEY')
+# consumer_secret = os.getenv('CONSUMER_SECRET')
+# access_token = os.getenv('ACCESS_TOKEN')
+# access_token_secret = os.getenv('ACCESS_TOKEN_SECRET')
+
 import sys
 sys.path.insert(0, os.path.abspath('/Volumes/GoogleDrive-108526182429603786708/My Drive/keys'))
 import keys
