@@ -1,19 +1,25 @@
 #from https://dev.mention.com/current/src/guides/twitter.html 
+import os
 
 from this import d
 from rauth import OAuth1Service
-from keys import *
 import json
 import urllib.parse
+
+# API keys
+import sys
+sys.path.insert(0, os.path.abspath('/Volumes/GoogleDrive-108526182429603786708/My Drive/keys'))
+import keys
+from keys import *
 
 # Instantiate a client
 # MUST INPUT YOUR OWN CONSUMER KEY AND ACCESS TOKEN INFO in keys.py
 twitter_client = OAuth1Service(name='twitter',
-                              consumer_key=consumer_key,
-                              consumer_secret=consumer_secret,
+                              consumer_key=keys.consumer_key,
+                              consumer_secret=keys.consumer_secret,
                               base_url='https://api.twitter.com/1.1/')
 
-twitter_session = twitter_client.get_session((access_token, access_token_secret))
+twitter_session = twitter_client.get_session((keys.access_token, keys.access_token_secret))
 
 # Rounding/simplifying numbers - will fix so as to not hard-code numbers
 def simp(number):
