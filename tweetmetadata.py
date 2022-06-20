@@ -12,9 +12,8 @@ from rauth import OAuth1Service
 # access_token_secret = os.getenv('ACCESS_TOKEN_SECRET')
 
 import sys
-sys.path.insert(0, os.path.abspath('/Volumes/GoogleDrive-108526182429603786708/My Drive/keys'))
+sys.path.insert(0, os.path.abspath('./.secret'))
 import keys
-from keys import *
 
 # Instantiate a client
 # MUST INPUT YOUR OWN CONSUMER KEY AND ACCESS TOKEN INFO in keys.py
