@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Key Tweet Generator
+{% endblock %}
+
+{% block main %}
+    <!-- graphic goes here -->
+    <center>
+    <table class="table">
+        <thead>
+            <tr>
+                <td class="tweettd" colspan="2" scope="col" style="text-align: right">
+                    {{ data.retweets }} RETWEET(S)
+                    <br>{{ data.likes }} LIKE(S)
+                    <!--<br><a href={{ data.url }}>{{ data.url }}</a>-->
+                </td>
+                <td width="150px" class="profiletd">
+                    Written by<br><b>@{{ data.handle }}<br>{{ data.followers }} FOLLOWERS</b>
+                </td>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <!-- twitframe -->
+                <td class="tweettd" colspan="2" rowspan="3">
+                    <div id="tweetdiv" style="height: 750px">
+                        <iframe id="tweet" style="position: absolute; resize: both" border=0 frameborder=0 height=100% width=100%
+                        src={{ data.twitframe_url }}></iframe>
+                    </div>
+                </td>
+                <td class="profiletd" width="200px">{{ data.bio }}</td>
+            </tr>
+        </tbody>
+      </table>
+      </center>
+{% endblock %}
