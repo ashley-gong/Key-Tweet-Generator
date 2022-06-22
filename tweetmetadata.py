@@ -1,31 +1,29 @@
 #from https://dev.mention.com/current/src/guides/twitter.html 
-import os
-
+import json
 from rauth import OAuth1Service
 
-# API keys
-# from dotenv import load_dotenv
-# load_dotenv()
-# consumer_key = os.getenv('CONSUMER_KEY')
-# consumer_secret = os.getenv('CONSUMER_SECRET')
-# access_token = os.getenv('ACCESS_TOKEN')
-# access_token_secret = os.getenv('ACCESS_TOKEN_SECRET')
+def get_keys(path):
+    with open(path) as f:
+        return json.load(f)
 
-import sys
-sys.path.insert(0, os.path.abspath('./.secret'))
-import keys
+# Retrieve API keys
+keys = get_keys("/Volumes/GoogleDrive-108526182429603786708/My Drive/key-tweet-gen/.secret/keys.json")
+consumer_key = keys['consumer_key']
+consumer_secret = keys['consumer_secret']
+access_token = keys['access_token']
+access_token_secret = keys['access_token_secret']
+
 
 # Instantiate a client
-# MUST INPUT YOUR OWN CONSUMER KEY AND ACCESS TOKEN INFO in keys.py
 twitter_client = OAuth1Service(name='twitter',
-                              consumer_key=keys.consumer_key,
-                              consumer_secret=keys.consumer_secret,
+                              consumer_key=consumer_key,
+                              consumer_secret=consumer_secret,
                               base_url='https://api.twitter.com/1.1/')
 
-twitter_session = twitter_client.get_session((keys.access_token, keys.access_token_secret))
+twitter_session = twitter_client.get_session((access_token, access_token_secret))
 
 # Rounding/simplifying numbers - will fix so as to not hard-code numbers
-def simp(number):
+def simplify(number):
     if number >= 1000000000:
         new_number = str(round(number / 10000000000, 1)) + "B"
 
@@ -61,6 +59,8 @@ def get_metadata(link):
     #data we want: Tweet URL, Retweets, Likes, Author handle, Author profile URL, Author bio, Followers
     #generate url for twitframe
     twitframe_url = "https://twitframe.com/show?url=" + link #urllib.parse.quote(meta_url, safe="")
+    #text
+    text = dict["text"]
     #retweets
     retweets = dict["retweet_count"]
     #likes
@@ -77,16 +77,16 @@ def get_metadata(link):
     metadata = {
             "url": link, 
             "twitframe_url": twitframe_url,
-            "retweets": simp(retweets), 
-            "likes": simp(likes), 
+            "text": text,
+            "retweets": simplify(retweets), 
+            "likes": simplify(likes), 
             "author_name": name, 
             "handle": handle, 
             "bio": bio, 
-            "followers": simp(followers)
+            "followers": simplify(followers)
         }
 
     print(metadata)
     
     return metadata
     
-# switch to class/object-oriented, rather than dataframe?

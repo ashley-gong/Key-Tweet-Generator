@@ -36,7 +36,7 @@ def index():
         data = tweet.get_metadata(link)
         
         # Display graphic
-        return render_template("new.html", data=data)
+        return render_template("english.html", data=data)
     
     if request.method == "GET":  
         return render_template("index.html")
