@@ -6,6 +6,12 @@
 # .secret
 .secret/
 
+# env
+env/
+
+# venv gunicorn
+*.pyc
+
 ### OSX ###
 # General
 .DS_Store
