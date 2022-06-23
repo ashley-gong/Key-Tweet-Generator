@@ -43,3 +43,6 @@ def index():
 
 
 # https://www.youtube.com/watch?v=CUIK3tKNH5E&ab_channel=CS50 
+
+if __name__ == "__main__":
+    app.run(debug=True)

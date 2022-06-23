@@ -27,7 +27,7 @@ def simplify(number):
     if number >= 1000000000:
         new_number = str(round(number / 10000000000, 1)) + "B"
 
-    elif number >= 10000000: 
+    elif number >= 10000000:
         new_number = str(round(number / 10000000, 1)) + "M"
 
     elif number >= 10000:
@@ -40,13 +40,13 @@ def simplify(number):
 
 # Request the metadata of a tweet
 def get_metadata(link):
-    
+
     #tweet URL (api) and id
     id = link.split('/')[-1]
 
     ID = [id]
     URL = 'https://api.twitter.com/1.1/statuses/lookup.json'
-    
+
     #get request
     r = twitter_session.get(URL,
                             params={'id': ','.join(ID)})
@@ -75,18 +75,18 @@ def get_metadata(link):
 
     #store in dictionary
     metadata = {
-            "url": link, 
+            "url": link,
             "twitframe_url": twitframe_url,
             "text": text,
-            "retweets": simplify(retweets), 
-            "likes": simplify(likes), 
-            "author_name": name, 
-            "handle": handle, 
-            "bio": bio, 
+            "retweets": simplify(retweets),
+            "likes": simplify(likes),
+            "author_name": name,
+            "handle": handle,
+            "bio": bio,
             "followers": simplify(followers)
         }
 
     print(metadata)
-    
+
     return metadata
-    
+
